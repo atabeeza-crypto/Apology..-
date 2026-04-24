@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For You ❤️</title>
+
+<style>
+body {
+  text-align: center;
+  font-family: Arial;
+  background: #ffe6f0;
+  padding-top: 60px;
+  overflow: hidden;
+}
+
+h2 {
+  padding: 0 20px;
+}
+
+button {
+  padding: 12px 22px;
+  margin: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+#yes {
+  background-color: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background-color: #ccc;
+  position: absolute;
+}
+</style>
+</head>
+
+<body>
+
+<h2 id="text">Hey… can you just listen once? 🥺</h2>
+
+<button id="yes" onclick="nextStep()">Yes</button>
+<button id="no" onmouseover="moveNo()">No</button>
+
+<script>
+let step = 0;
+
+let texts = [
+"Hey… can you just listen once? 🥺",
+"I know I messed up…",
+"And I know I hurt you…",
+"I’m really sorry for that",
+"I didn’t mean to lose you like this…",
+"I still care about you… a lot",
+"I’m not forcing anything…",
+"But I just didn’t want to stay silent",
+"Can we talk…? ❤️"
+];
+
+function nextStep() {
+  step++;
+  if(step < texts.length){
+    document.getElementById("text").innerText = texts[step];
+  } else {
+    document.body.innerHTML = "<h1>I miss us ❤️</h1><p>Even now… I do.</p>";
+  }
+}
+
+function moveNo() {
+  let x = Math.random() * (window.innerWidth - 100);
+  let y = Math.random() * (window.innerHeight - 50);
+  let btn = document.getElementById("no");
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>
